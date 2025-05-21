@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Planning 7 jours</title>
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+  <style>
+    body { font-family: sans-serif; margin: 40px; }
+    #calendar { max-width: 1000px; margin: 0 auto; }
+  </style>
+</head>
+<body>
+  <h1>Planning Hebdomadaire</h1>
+  <div id="calendar"></div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const calendarEl = document.getElementById('calendar');
+      const calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'timeGridWeek',
+        locale: 'fr',
+        nowIndicator: true,
+        slotMinTime: "06:00:00",
+        slotMaxTime: "22:00:00",
+        headerToolbar: {
+          left: 'prev,next today',
+          center: 'title',
+          right: 'timeGridWeek,timeGridDay'
+        },
+        events: [
+          {
+            title: 'Réunion chantier',
+            start: '2025-05-21T09:00:00',
+            end: '2025-05-21T10:30:00'
+          },
+          {
+            title: 'Visite sécurité',
+            start: '2025-05-22T14:00:00',
+            end: '2025-05-22T15:00:00'
+          }
+        ]
+      });
+      calendar.render();
+    });
+  </script>
+</body>
+</html>
